@@ -1,16 +1,51 @@
-# React + Vite
+# Emanuele Riccardi - Portfolio Personale
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Benvenuti nel repository del mio portfolio personale. Questo progetto è una Single Page Application (SPA) moderna, reattiva e performante, progettata per mostrare le mie competenze come Software Engineer e Full Stack Developer.
 
-Currently, two official plugins are available:
+## 🚀 Tecnologie Utilizzate
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React 19**: Framework principale per l'interfaccia utente.
+- **Vite**: Build tool ultra-veloce.
+- **Tailwind CSS**: Styling basato su classi utility per un design moderno e responsive.
+- **Framer Motion**: Libreria utilizzata per animazioni avanzate (3D Tilt, scroll reveal, floating navbar).
+- **Lucide React**: Set di icone eleganti e minimaliste.
 
-## React Compiler
+## ✨ Caratteristiche Principali
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Design Premium**: Tema dark moderno con effetti di vetro (glassmorphism) e background dinamici.
+- **Navbar Adattiva**: Floating pill su desktop che si nasconde allo scroll e navbar fissa su mobile/tablet.
+- **3D Interactive Projects**: Card dei progetti che si inclinano seguendo il movimento del mouse.
+- **Filtri Dinamici**: Sistema di filtraggio dei progetti per categoria (Java, React, ecc.).
+- **Download CV**: Funzionalità integrata per il download del curriculum professionale.
+- **Ottimizzazione Mobile**: Layout completamente responsive e testato su diverse risoluzioni.
 
-## Expanding the ESLint configuration
+## 📦 Installazione e Utilizzo Locale
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. **Clona il repository**:
+   ```bash
+   git clone https://github.com/RCCMNL/portfolio.git
+   ```
+
+2. **Installa le dipendenze**:
+   ```bash
+   npm install
+   ```
+
+3. **Avvia il server di sviluppo**:
+   ```bash
+   npm run dev
+   ```
+
+4. **Build per la produzione**:
+   ```bash
+   npm run build
+   ```
+
+## 📧 Contatti
+
+- **Email**: riccardiemanuele2016@outlook.it
+- **LinkedIn**: [Emanuele Riccardi](https://www.linkedin.com/in/emanuele-riccardi-5819b422a/)
+- **GitHub**: [@RCCMNL](https://github.com/RCCMNL/)
+
+---
+Realizzato con ❤️ da Emanuele Riccardi
