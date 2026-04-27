@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rccmnl.github.io/portfolio/sitemap.xml
+Sitemap: https://portfolio-riccardiemanuele.vercel.app/sitemap.xml
