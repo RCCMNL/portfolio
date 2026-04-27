@@ -139,7 +139,7 @@ const Navbar = () => {
               onClick={() => setIsPhotoOpen(true)}
               className="w-10 h-10 rounded-full border-2 border-slate-700 overflow-hidden shadow-lg hover:border-blue-500 transition-colors cursor-pointer ml-2"
             >
-              <img src="/profilo.png" alt="Emanuele Riccardi" className="w-full h-full object-cover" />
+              <img src="/profilo.webp" alt="Emanuele Riccardi" className="w-full h-full object-cover" />
             </motion.div>
 
             <motion.div layout="position" className="lg:hidden">
@@ -195,7 +195,7 @@ const Navbar = () => {
                 exit={{ scale: 0.5, opacity: 0 }}
                 className="w-full max-w-lg aspect-square rounded-full border-8 border-slate-800 shadow-2xl overflow-hidden"
               >
-                <img src="/profilo.png" alt="Emanuele Riccardi" className="w-full h-full object-cover" />
+                <img src="/profilo.webp" alt="Emanuele Riccardi" className="w-full h-full object-cover" />
               </motion.div>
               
               {/* Tasto X esterno vicino alla foto */}
