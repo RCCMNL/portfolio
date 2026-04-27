@@ -49,15 +49,15 @@ const Skills = () => {
               key={index} 
               variants={itemVariants}
               whileHover={{ y: -5 }}
-              className="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-blue-500/50 transition-colors shadow-lg"
+              className="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-blue-500/50 transition-colors shadow-lg flex flex-col items-center text-center"
             >
-              <div className="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center text-blue-400 mb-6">
+              <div className="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 transition-transform">
                 {skill.icon}
               </div>
               <h3 className="text-xl font-semibold mb-4 text-gray-100">{skill.category}</h3>
               <ul className="space-y-2">
                 {skill.items.map((item, idx) => (
-                  <li key={idx} className="flex items-center text-gray-400 text-sm">
+                  <li key={idx} className="flex items-center justify-center text-gray-400 text-sm">
                     <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></span>{item}
                   </li>
                 ))}

@@ -1,6 +1,7 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { Github, ExternalLink, Code2 } from 'lucide-react';
 import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { PROJECTS } from '../data';
 
 const ProjectCard = ({ project }) => {
@@ -9,6 +10,8 @@ const ProjectCard = ({ project }) => {
 
   const rotateX = useTransform(y, [-100, 100], [8, -8]);
   const rotateY = useTransform(x, [-100, 100], [-8, 8]);
+
+  const projectPath = `/progetti/${project.title.toLowerCase().replace(/\s+/g, '-')}`;
 
   function handleMouseMove(event) {
     const rect = event.currentTarget.getBoundingClientRect();
@@ -51,19 +54,22 @@ const ProjectCard = ({ project }) => {
             target="_blank" 
             rel="noreferrer"
             className="p-3 bg-white/90 rounded-full text-slate-900 transition-all"
+            title="GitHub Repository"
           >
             <Github size={20} />
           </motion.a>
-          <motion.a 
-            whileHover={{ scale: 1.1, backgroundColor: '#3b82f6', color: '#fff' }}
+          <motion.div
+            whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            href={project.link} 
-            target="_blank"
-            rel="noreferrer"
-            className="p-3 bg-white/90 rounded-full text-slate-900 transition-all"
           >
-            <ExternalLink size={20} />
-          </motion.a>
+            <Link 
+              to={projectPath}
+              className="p-3 bg-white/90 rounded-full text-slate-900 transition-all hover:bg-blue-500 hover:text-white flex items-center justify-center"
+              title="Project Demo"
+            >
+              <ExternalLink size={20} />
+            </Link>
+          </motion.div>
         </div>
       </div>
 

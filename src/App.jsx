@@ -1,29 +1,30 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Skills from './components/Skills';
-import Projects from './components/Projects';
-import Contact from './components/Contact';
+import Home from './pages/Home';
+import ProjectDemo from './pages/ProjectDemo';
 import BackgroundBlobs from './components/BackgroundBlobs';
 import ScrollProgress from './components/ScrollProgress';
 import './App.css';
 
 const App = () => {
   return (
-    <div className="bg-slate-900 min-h-screen text-slate-200 font-sans selection:bg-blue-500 selection:text-white relative overflow-x-hidden">
-      <ScrollProgress />
-      <BackgroundBlobs />
-      
-      <div className="relative z-10">
-        <Navbar />
-        <main>
-          <Hero />
-          <Skills />
-          <Projects />
-          <Contact />
-        </main>
+    <Router>
+      <div className="bg-slate-900 min-h-screen text-slate-200 font-sans selection:bg-blue-500 selection:text-white relative overflow-x-hidden">
+        <ScrollProgress />
+        <BackgroundBlobs />
+        
+        <div className="relative z-10">
+          <Navbar />
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/progetti/:id" element={<ProjectDemo />} />
+            </Routes>
+          </main>
+        </div>
       </div>
-    </div>
+    </Router>
   );
 };
 
