@@ -25,17 +25,17 @@ const itemVariants = {
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-20 bg-slate-900 text-white">
+    <section id="skills" className="py-24 bg-slate-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.h2 
-          initial={{ opacity: 0, y: -20 }}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5 }}
-          className="text-3xl md:text-4xl font-bold mb-4 text-center"
+          viewport={{ once: true }}
+          className="text-center mb-16"
         >
-          Competenze
-        </motion.h2>
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-white">Competenze <span className="text-blue-500">Sviluppate</span></h2>
+          <p className="text-gray-400 max-w-2xl mx-auto">Un mix di tecnologie backend e frontend affinate attraverso progetti accademici e personali.</p>
+        </motion.div>
         
         <motion.div 
           variants={containerVariants}

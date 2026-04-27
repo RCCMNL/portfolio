@@ -24,7 +24,7 @@ const Contact = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="bg-slate-800 p-8 rounded-2xl border border-slate-700 inline-block w-full max-w-2xl shadow-2xl"
         >
-          <div className="flex flex-col md:flex-row justify-center items-center gap-8">
+          <div className="flex flex-col md:flex-row justify-around items-center gap-8">
             
             <motion.div 
               whileHover={{ y: -5 }}
