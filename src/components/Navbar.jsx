@@ -10,6 +10,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [hoveredLink, setHoveredLink] = useState(null);
   const { scrollY } = useScroll();
   const location = useLocation();
 
@@ -96,10 +97,10 @@ const Navbar = () => {
             damping: 25,
             layout: { duration: 0.6 } 
           }}
-          className={`flex items-center justify-between w-full border transition-all duration-700 ${
-            scrolled 
+          className={`flex items-center justify-between w-full border transition-all duration-300 ${
+            (scrolled || isOpen) 
               ? isMobile 
-                ? 'max-w-full bg-slate-900/95 backdrop-blur-xl border-slate-800/50 border-b-1 border-x-0 border-t-0 py-4 px-6 shadow-xl'
+                ? `${isOpen ? 'bg-slate-900' : 'bg-slate-900/95'} max-w-full backdrop-blur-xl border-slate-800/50 border-b border-x-0 border-t-0 py-4 px-6 shadow-xl`
                 : 'max-w-5xl bg-slate-900/70 backdrop-blur-xl border-white/10 rounded-full py-2 px-8 shadow-2xl shadow-blue-500/5' 
               : 'max-w-7xl bg-transparent border-transparent py-5 px-6 rounded-none'
           }`}
@@ -116,17 +117,28 @@ const Navbar = () => {
           <div className="flex items-center gap-6">
             <div className="hidden lg:flex items-center space-x-1">
               {navLinks.map((link) => (
-                <motion.div layout="position" key={link.name}>
+                <motion.div 
+                  layout="position" 
+                  key={link.name}
+                  onMouseEnter={() => setHoveredLink(link.name)}
+                  onMouseLeave={() => setHoveredLink(null)}
+                >
                   <Link 
                     to={`/#${link.href}`}
                     onClick={(e) => handleNavClick(e, link.href)}
                     className="relative text-gray-300 hover:text-white px-4 py-2 rounded-full text-sm font-medium transition-colors group"
                   >
                     <span className="relative z-10">{link.name}</span>
-                    <motion.span 
-                      className="absolute inset-0 bg-blue-500/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
-                      layoutId="nav-hover"
-                    />
+                    {hoveredLink === link.name && (
+                      <motion.span 
+                        layoutId="nav-hover"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="absolute inset-0 bg-blue-500/15 rounded-full border border-blue-500/30 shadow-[0_0_15px_rgba(59,130,246,0.1)]"
+                        transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                      />
+                    )}
                   </Link>
                 </motion.div>
               ))}
