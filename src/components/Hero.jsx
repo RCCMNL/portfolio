@@ -68,7 +68,7 @@ const Hero = () => {
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
-              className="relative z-10 w-full h-full rounded-2xl bg-slate-800/50 backdrop-blur-xl border border-slate-700 p-8 flex flex-col justify-between shadow-2xl transition-transform duration-500"
+              className="relative z-10 w-full h-full rounded-2xl bg-slate-800/80 md:bg-slate-800/50 md:backdrop-blur-xl border border-slate-700 p-8 flex flex-col justify-between shadow-2xl transition-transform duration-500"
             >
               <div className="space-y-4 font-mono text-sm text-gray-300">
                 <p><span className="text-purple-400">class</span> <span className="text-yellow-300">Dev</span> {'{'}</p>
