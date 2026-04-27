@@ -5,13 +5,13 @@ import { PERSONAL_INFO } from '../data';
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white pt-32 md:pt-16 pb-20 md:pb-0 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center">
+    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white pt-24 pb-12 overflow-hidden">
+      <div className="max-w-5xl mx-auto px-6 sm:px-10 lg:px-12 flex flex-col md:flex-row items-center gap-12 md:gap-16">
         <motion.div 
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="md:w-1/2 text-center md:text-left space-y-6"
+          className="md:w-1/2 text-center md:text-left space-y-6 max-w-xl"
         >
           <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}
@@ -56,7 +56,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="md:w-1/2 mt-12 md:mt-0 flex justify-center relative"
         >
-          <div className="relative w-full max-w-[280px] sm:max-w-xs md:max-w-md aspect-square">
+          <div className="relative w-full max-w-[280px] sm:max-w-xs md:max-w-sm lg:max-w-md aspect-square">
             <div className="absolute inset-0 bg-blue-500 rounded-full opacity-20 blur-3xl animate-pulse"></div>
             <motion.div 
               animate={{ 
@@ -68,9 +68,9 @@ const Hero = () => {
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
-              className="relative z-10 w-full h-full rounded-2xl bg-slate-800/80 md:bg-slate-800/50 md:backdrop-blur-xl border border-slate-700 p-8 flex flex-col justify-between shadow-2xl transition-transform duration-500"
+              className="relative z-10 w-full h-full rounded-2xl bg-slate-800/80 md:bg-slate-800/50 md:backdrop-blur-xl border border-slate-700 p-6 md:p-4 lg:p-8 flex flex-col justify-between shadow-2xl transition-transform duration-500"
             >
-              <div className="space-y-4 font-mono text-sm text-gray-300">
+              <div className="space-y-4 font-mono text-xs lg:text-sm text-gray-300">
                 <p><span className="text-purple-400">class</span> <span className="text-yellow-300">Dev</span> {'{'}</p>
                 <p className="pl-4">status: <span className="text-green-400">"Contattami..."</span>;</p>
                 <p className="pl-4">skills: [<span className="text-green-400">"Java"</span>, <span className="text-green-400">"React"</span>];</p>
