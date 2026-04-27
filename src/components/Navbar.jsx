@@ -49,14 +49,29 @@ const Navbar = () => {
   ];
 
   const handleNavClick = (e, href) => {
-    if (location.pathname === '/') {
-      e.preventDefault();
+    // Chiudiamo subito il menu mobile
+    setIsOpen(false);
+
+    // Se siamo già nella home, gestiamo lo scroll manualmente
+    if (location.pathname === '/' || location.pathname === '') {
       const element = document.getElementById(href);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        e.preventDefault();
+        
+        // Un piccolo timeout permette al menu di iniziare a chiudersi
+        // evitando conflitti di layout durante lo scroll
+        setTimeout(() => {
+          const yOffset = -80; // Offset per non far coprire la sezione dalla navbar
+          const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          
+          window.scrollTo({
+            top: y,
+            behavior: 'smooth'
+          });
+        }, 100);
       }
     }
-    setIsOpen(false);
+    // Se non siamo in home, lasciamo che React Router gestisca la navigazione
   };
 
   return (
