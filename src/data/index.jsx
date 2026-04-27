@@ -7,7 +7,7 @@ import portfolioImg from '../assets/portfolio.png';
 export const PERSONAL_INFO = {
   name: "Emanuele Riccardi",
   role: "Software Engineer & Full Stack Developer",
-  bio: "Neolaureato in Informatica con una forte passione per l'ingegneria del software. Specializzato nello sviluppo di architetture scalabili e soluzioni backend robuste. Alla ricerca di sfide che uniscano complessità algoritmica e impatto utente.",
+  bio: "Studente in Informatica con una forte passione per l'ingegneria del software. Specializzato nello sviluppo di architetture scalabili e soluzioni backend robuste. Alla ricerca di sfide che uniscano complessità algoritmica e impatto utente.",
   email: "riccardiemanuele2016@outlook.it",
   github: "https://github.com/RCCMNL/",
   linkedin: "https://www.linkedin.com/in/emanuele-riccardi-5819b422a/"
