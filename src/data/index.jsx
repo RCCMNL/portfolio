@@ -3,6 +3,7 @@ import { Server, Globe, Database, Terminal } from 'lucide-react';
 import dressmeImg from '../assets/dressme.png';
 import dinoIaImg from '../assets/dino_ia.png';
 import portfolioImg from '../assets/portfolio.png';
+import gymcorpusImg from '../assets/gymcorpus.png';
 
 export const PERSONAL_INFO = {
   name: "Emanuele Riccardi",
@@ -55,7 +56,15 @@ export const PROJECTS = [
     image: dinoIaImg,
     category: "Java"
   },
-  {
+{
+  title: "GymCorpus",
+    description: "Applicazione per il tracciamento degli allenamenti e la gestione di schede fitness personalizzate, focalizzata sull'ottimizzazione delle performance in palestra.",
+    tech: ["React Native", "Node.js", "MongoDB", "Tailwind CSS"],
+    link: "https://github.com/RCCMNL/GymCorpus",
+    github: "https://github.com/RCCMNL/GymCorpus",
+    image: gymcorpusImg,
+    category: "React"
+},{
     title: "Portfolio Personale",
     description: "Single Page Application reattiva per mostrare competenze frontend.",
     tech: ["React", "Tailwind CSS", "Vite"],
