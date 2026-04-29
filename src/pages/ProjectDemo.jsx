@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { PROJECTS } from '../data';
-import { ArrowLeft, Github, ExternalLink, Code2 } from 'lucide-react';
+import { ArrowLeft, Github, ExternalLink, Code2, Terminal } from 'lucide-react';
 
 const DINO_PROJECT_ID = 'dino-ia';
 
@@ -69,36 +69,67 @@ const ProjectDemo = () => {
               {project.description}
             </p>
 
-            <div className="space-y-6">
-              <div className="p-6 bg-slate-800/50 rounded-2xl border border-slate-700">
-                <h4 className="font-bold mb-2">Dettagli Implementativi</h4>
+            <div className="space-y-8">
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="p-8 bg-slate-800/40 backdrop-blur-xl rounded-3xl border border-slate-700/50 shadow-2xl relative overflow-hidden group"
+              >
+                <div className="absolute top-0 left-0 w-1.5 h-full bg-blue-500/50 group-hover:bg-blue-400 transition-colors" />
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="p-2.5 bg-blue-500/10 rounded-xl text-blue-400 border border-blue-500/20">
+                    <Terminal size={22} />
+                  </div>
+                  <h4 className="text-xl font-bold text-white tracking-tight">Dettagli Implementativi</h4>
+                </div>
+                
                 {isDinoProject ? (
-                  <p className="text-sm text-gray-400 leading-relaxed">
+                  <p className="text-gray-400 leading-relaxed text-base">
                     Il progetto implementa un algoritmo genetico per addestrare una popolazione di agenti a superare gli ostacoli nel gioco Chrome Dino. Il sistema, qui integrato per una preview live, utilizza selezione naturale, crossover e mutazione per far evolvere generazioni di dinosauri sempre più performanti, simulando un processo di apprendimento basato sull'evoluzione darwiniana.
                   </p>
                 ) : (
-                  <p className="text-sm text-gray-400">
-                    Questo progetto utilizza architetture moderne e pattern di design ottimizzati per la scalabilita.
-                    In questa sezione demo potremo presto integrare video walkthrough o istanze live del database.
+                  <p className="text-gray-400 leading-relaxed text-base">
+                    Questo progetto utilizza architetture moderne e pattern di design ottimizzati per la scalabilità.
+                    In questa sezione demo potremo presto integrare video walkthrough o istanze live del database per mostrare il funzionamento interno del software.
                   </p>
                 )}
-              </div>
+              </motion.div>
 
-              <div>
-                <h3 className="text-sm uppercase tracking-widest text-blue-500 font-bold mb-3">Tecnologie</h3>
-                <div className="flex flex-wrap gap-2">
+              <div className="text-center">
+                <motion.h3 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="text-xl md:text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 uppercase tracking-[0.2em] mb-8"
+                >
+                  Tecnologie
+                </motion.h3>
+                <div className="flex flex-wrap gap-3 justify-center">
                   {project.tech.map((t, i) => (
-                    <span key={i} className="px-4 py-1.5 bg-slate-800 rounded-full border border-slate-700 text-sm">{t}</span>
+                    <motion.span 
+                      key={i}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.1 * i }}
+                      whileHover={{ 
+                        scale: 1.1, 
+                        backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                        borderColor: 'rgba(59, 130, 246, 0.5)',
+                        color: '#60a5fa'
+                      }}
+                      className="px-5 py-2 bg-slate-800/50 rounded-xl border border-slate-700 text-sm font-medium text-gray-300 cursor-default transition-colors backdrop-blur-sm shadow-lg"
+                    >
+                      {t}
+                    </motion.span>
                   ))}
                 </div>
               </div>
 
-              <div className="flex gap-4 pt-6">
+              <div className="flex flex-wrap gap-4 pt-6 justify-center">
                 <a
                   href={project.github}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex-1 px-6 py-3 bg-slate-800 hover:bg-slate-700 rounded-xl border border-slate-700 flex items-center justify-center gap-2 transition-all"
+                  className="px-10 py-3 bg-slate-800 hover:bg-slate-700 rounded-xl border border-slate-700 flex items-center justify-center gap-2 transition-all min-w-[200px]"
                 >
                   <Github size={20} /> Repository Code
                 </a>
@@ -106,14 +137,14 @@ const ProjectDemo = () => {
                   <button
                     type="button"
                     onClick={handleLoadPreview}
-                    className="flex-1 px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg shadow-blue-500/20"
+                    className="px-10 py-3 bg-blue-600 hover:bg-blue-700 rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg shadow-blue-500/20 min-w-[200px]"
                   >
                     <ExternalLink size={20} /> {isDemoLoaded ? 'Preview attiva' : 'Live Preview'}
                   </button>
                 ) : (
                   <a
                     href="#"
-                    className="flex-1 px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg shadow-blue-500/20"
+                    className="px-10 py-3 bg-blue-600 hover:bg-blue-700 rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg shadow-blue-500/20 min-w-[200px]"
                   >
                     <ExternalLink size={20} /> Live Preview
                   </a>
