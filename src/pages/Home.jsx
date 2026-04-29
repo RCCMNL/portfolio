@@ -22,8 +22,8 @@ const Home = () => {
   return (
     <>
       <Hero />
-      <Skills />
       <Projects />
+      <Skills />
     </>
   );
 };

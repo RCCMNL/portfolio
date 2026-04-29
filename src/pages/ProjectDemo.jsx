@@ -208,7 +208,7 @@ const ProjectDemo = () => {
                   <div className="absolute inset-0 flex items-center justify-center bg-slate-900/60 backdrop-blur-sm opacity-0 hover:opacity-100 transition-opacity cursor-pointer">
                     <div className="flex flex-col items-center">
                       <Code2 size={48} className="text-blue-500 mb-2" />
-                      <span className="text-sm font-bold">In arrivo demo interattiva...</span>
+                      <span className="text-sm font-bold">La demo interattiva è attualmente in fase di sviluppo, sarà disponibile prossimamente.</span>
                     </div>
                   </div>
                 </div>

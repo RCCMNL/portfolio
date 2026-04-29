@@ -1,9 +1,9 @@
 import React from 'react';
 import { Server, Globe, Database, Terminal } from 'lucide-react';
-import dressmeImg from '../assets/dressme.png';
-import dinoIaImg from '../assets/dino_ia.png';
-import portfolioImg from '../assets/portfolio.png';
-import gymcorpusImg from '../assets/gymcorpus.png';
+import dressmeImg from '../assets/dressme.webp';
+import dinoIaImg from '../assets/dino_ia.webp';
+import portfolioImg from '../assets/portfolio.webp';
+import gymcorpusImg from '../assets/gymcorpus.webp';
 
 export const PERSONAL_INFO = {
   name: "Emanuele Riccardi",
@@ -23,7 +23,7 @@ export const SKILLS = [
   {
     category: "Frontend & UI",
     icon: <Globe size={24} />,
-    items: ["React.js", "TypeScript", "Tailwind CSS", "HTML5/CSS3", "Responsive Design"]
+    items: ["React.js", "TypeScript","JavaScript", "Tailwind CSS", "HTML5/CSS3"]
   },
   {
     category: "Software Testing",
@@ -41,7 +41,7 @@ export const PROJECTS = [
   {
     title: "E-Commerce DressMe",
     description: "Piattaforma web per un e-commerce di abbigliamento sviluppata per l'esame di Ingegneria del Software.",
-    tech: ["Java EE", "MySQL", "JSP"],
+    tech: ["Java","HTML5/CSS3","JavaScript","MySQL", "JSP e MVC"],
     link: "https://github.com/RCCMNL/ProgettoIS",
     github: "https://github.com/RCCMNL/ProgettoIS",
     image: dressmeImg,
@@ -51,19 +51,19 @@ export const PROJECTS = [
     title: "Dino-IA",
     description: "Progetto sviluppato per l'esame di Fondamenti di Intelligenza Artificiale presso l'Università di Salerno (UniSa), qui integrato con una simulazione live basata su algoritmi genetici.",
     tech: ["IA", "Algoritmi Genetici", "Neural Networks", "Evolutionary Computing"],
-    link: "https://github.com/RCCMNL/progetto-fia-dino-ia/tree/demo-portfolio",
-    github: "https://github.com/RCCMNL/progetto-fia-dino-ia/tree/demo-portfolio",
+    link: "https://github.com/RCCMNL/progetto-fia-dino-ia",
+    github: "https://github.com/RCCMNL/progetto-fia-dino-ia",
     image: dinoIaImg,
-    category: "Java"
+    category: "Javascript"
   },
 {
   title: "GymCorpus",
     description: "Applicazione per il tracciamento degli allenamenti e la gestione di schede fitness personalizzate, focalizzata sull'ottimizzazione delle performance in palestra.",
-    tech: ["React Native", "Node.js", "MongoDB", "Tailwind CSS"],
+    tech: ["Dart", "SQLite"],
     link: "https://github.com/RCCMNL/GymCorpus",
     github: "https://github.com/RCCMNL/GymCorpus",
     image: gymcorpusImg,
-    category: "React"
+    category: "Dart"
 },{
     title: "Portfolio Personale",
     description: "Single Page Application reattiva per mostrare competenze frontend.",
