@@ -3,15 +3,34 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { PROJECTS } from '../data';
 import { ArrowLeft, Github, ExternalLink, Code2, Terminal } from 'lucide-react';
+import { useSEO } from '../hooks/useSEO';
+import { getProjectSlug } from '../utils/projectSlug';
 
 const DINO_PROJECT_ID = 'dino-ia';
 
 const ProjectDemo = () => {
   const { id } = useParams();
-  const project = PROJECTS.find(p => p.title.toLowerCase().replace(/\s+/g, '-') === id);
+  const project = PROJECTS.find((p) => getProjectSlug(p.title) === id);
   const isDinoProject = id === DINO_PROJECT_ID;
   const [isDemoLoaded, setIsDemoLoaded] = useState(false);
   const previewRef = useRef(null);
+
+  useSEO(
+    project
+      ? {
+          title: `${project.title} | Progetto - Emanuele Riccardi`,
+          description: project.description,
+          image: project.image,
+          path: `/progetti/${id}`,
+          type: 'article',
+        }
+      : {
+          title: 'Progetto non trovato - Emanuele Riccardi',
+          description: 'La pagina progetto richiesta non e disponibile nel portfolio.',
+          path: `/progetti/${id}`,
+          robots: 'noindex, follow',
+        }
+  );
 
   useEffect(() => {
     window.scrollTo(0, 0);

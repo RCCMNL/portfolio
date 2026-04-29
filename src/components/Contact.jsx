@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Mail, Linkedin, Download } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { PERSONAL_INFO } from '../data';
 
 const Contact = () => {
+  const [copied, setCopied] = useState(false);
+
+  const handleEmailClick = async () => {
+    try {
+      await navigator.clipboard.writeText(PERSONAL_INFO.email);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 2000);
+    } catch {
+      setCopied(false);
+    }
+
+    window.location.href = `mailto:${PERSONAL_INFO.email}`;
+  };
+
   return (
     <section id="contact" className="py-24 bg-slate-900 text-white border-t border-slate-800 text-center relative overflow-hidden">
       <div className="max-w-4xl mx-auto px-4 relative z-10">
@@ -26,25 +40,28 @@ const Contact = () => {
         >
           <div className="flex flex-col sm:flex-row justify-around items-center gap-8">
             
-            <motion.div 
+            <motion.button 
+              type="button"
               whileHover={{ y: -5 }}
-              className="flex flex-col items-center group cursor-pointer relative"
-              onClick={() => {
-                navigator.clipboard.writeText(PERSONAL_INFO.email);
-                const toast = document.createElement('div');
-                toast.innerText = 'Email copiata!';
-                toast.className = 'absolute -top-12 bg-blue-600 text-white text-xs py-2 px-4 rounded-lg shadow-xl animate-bounce whitespace-nowrap';
-                document.getElementById('email-container').appendChild(toast);
-                setTimeout(() => toast.remove(), 2000);
-                window.location.href = `mailto:${PERSONAL_INFO.email}`;
-              }}
+              className="flex flex-col items-center group cursor-pointer relative rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
+              onClick={handleEmailClick}
               id="email-container"
+              aria-describedby={copied ? 'email-copy-feedback' : undefined}
             >
               <div className="w-16 h-16 bg-blue-500/10 rounded-full flex items-center justify-center text-blue-400 mb-3 group-hover:bg-blue-500 group-hover:text-white transition-all shadow-lg">
                 <Mail size={32} />
               </div>
               <span className="text-gray-300 group-hover:text-white transition-colors text-sm font-medium">Email</span>
-            </motion.div>
+              <span
+                id="email-copy-feedback"
+                aria-live="polite"
+                className={`absolute -top-12 rounded-lg bg-blue-600 px-4 py-2 text-xs text-white shadow-xl whitespace-nowrap transition-all ${
+                  copied ? 'opacity-100 translate-y-0' : 'pointer-events-none opacity-0 translate-y-2'
+                }`}
+              >
+                Email copiata!
+              </span>
+            </motion.button>
             
             <div className="hidden sm:block w-px h-16 bg-slate-700/50"></div>
             
@@ -53,7 +70,7 @@ const Contact = () => {
               href={PERSONAL_INFO.linkedin} 
               target="_blank"
               rel="noreferrer"
-              className="flex flex-col items-center group"
+              className="flex flex-col items-center group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400 rounded-2xl"
             >
               <div className="w-16 h-16 bg-blue-500/10 rounded-full flex items-center justify-center text-blue-400 mb-3 group-hover:bg-blue-500 group-hover:text-white transition-all shadow-lg">
                 <Linkedin size={32} />
@@ -67,7 +84,7 @@ const Contact = () => {
               whileHover={{ y: -5 }}
               href="/Riccardi_Emanuele_CV.pdf"
               download="Riccardi_Emanuele_CV.pdf"
-              className="flex flex-col items-center group cursor-pointer"
+              className="flex flex-col items-center group cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400 rounded-2xl"
             >
               <div className="w-16 h-16 bg-blue-500/10 rounded-full flex items-center justify-center text-blue-400 mb-3 group-hover:bg-blue-500 group-hover:text-white transition-all shadow-lg">
                 <Download size={32} />

@@ -3,6 +3,7 @@ import { Github, ExternalLink, Code2 } from 'lucide-react';
 import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { PROJECTS } from '../data';
+import { getProjectSlug } from '../utils/projectSlug';
 
 const ProjectCard = ({ project }) => {
   const x = useMotionValue(0);
@@ -11,7 +12,7 @@ const ProjectCard = ({ project }) => {
   const rotateX = useTransform(y, [-100, 100], [8, -8]);
   const rotateY = useTransform(x, [-100, 100], [-8, 8]);
 
-  const projectPath = `/progetti/${project.title.toLowerCase().replace(/\s+/g, '-')}`;
+  const projectPath = `/progetti/${getProjectSlug(project.title)}`;
 
   function handleMouseMove(event) {
     const rect = event.currentTarget.getBoundingClientRect();
@@ -53,8 +54,9 @@ const ProjectCard = ({ project }) => {
             href={project.github} 
             target="_blank" 
             rel="noreferrer"
-            className="p-3 bg-white/90 rounded-full text-slate-900 transition-all"
+            className="p-3 bg-white/90 rounded-full text-slate-900 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
             title="GitHub Repository"
+            aria-label={`Apri il repository GitHub di ${project.title}`}
           >
             <Github size={20} />
           </motion.a>
@@ -64,8 +66,9 @@ const ProjectCard = ({ project }) => {
           >
             <Link 
               to={projectPath}
-              className="p-3 bg-white/90 rounded-full text-slate-900 transition-all hover:bg-blue-500 hover:text-white flex items-center justify-center"
+              className="p-3 bg-white/90 rounded-full text-slate-900 transition-all hover:bg-blue-500 hover:text-white flex items-center justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
               title="Project Demo"
+              aria-label={`Apri la pagina progetto di ${project.title}`}
             >
               <ExternalLink size={20} />
             </Link>
@@ -95,7 +98,7 @@ const ProjectCard = ({ project }) => {
 
 const Projects = () => {
   const [filter, setFilter] = useState('Tutti');
-  const categories = ['Tutti', 'Java', 'React'];
+  const categories = ['Tutti', ...new Set(PROJECTS.map((project) => project.category))];
 
   const filteredProjects = filter === 'Tutti' 
     ? PROJECTS 
@@ -111,7 +114,7 @@ const Projects = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-white">Progetti <span className="text-blue-500">Selezionati</span></h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">Una selezione dei miei lavori più recenti, spaziando dal backend complesso al frontend reattivo.</p>
+          <p className="text-gray-400 max-w-2xl mx-auto">Una selezione dei miei lavori piu recenti, dal backend applicativo alle interfacce web reattive.</p>
           
           <div className="flex justify-center gap-4 mt-10">
             {categories.map((cat) => (
@@ -120,6 +123,7 @@ const Projects = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setFilter(cat)}
+                aria-pressed={filter === cat}
                 className={`px-6 py-2 rounded-full text-sm font-medium transition-all border ${
                   filter === cat 
                     ? 'bg-blue-600 border-blue-600 text-white shadow-lg shadow-blue-500/25' 

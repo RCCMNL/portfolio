@@ -49,6 +49,18 @@ const Navbar = () => {
     { name: 'Contatti', href: 'contact' },
   ];
 
+  const isLinkActive = (href) => {
+    if (location.pathname.startsWith('/progetti') && href === 'projects') {
+      return true;
+    }
+
+    if ((location.pathname === '/' || location.pathname === '') && !location.hash) {
+      return href === 'home';
+    }
+
+    return location.hash === `#${href}`;
+  };
+
   const handleNavClick = (e, href) => {
     // Chiudiamo subito il menu mobile
     setIsOpen(false);
@@ -126,16 +138,21 @@ const Navbar = () => {
                   <Link 
                     to={`/#${link.href}`}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className="relative text-gray-300 hover:text-white px-4 py-2 rounded-full text-sm font-medium transition-colors group"
+                    className={`relative px-4 py-2 rounded-full text-sm font-medium transition-colors group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400 ${
+                      isLinkActive(link.href) ? 'text-white' : 'text-gray-300 hover:text-white'
+                    }`}
+                    aria-current={isLinkActive(link.href) ? 'page' : undefined}
                   >
                     <span className="relative z-10">{link.name}</span>
-                    {hoveredLink === link.name && (
+                    {(hoveredLink === link.name || (!hoveredLink && isLinkActive(link.href))) && (
                       <motion.span 
                         layoutId="nav-hover"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="absolute inset-0 bg-blue-500/15 rounded-full border border-blue-500/30 shadow-[0_0_15px_rgba(59,130,246,0.1)]"
+                        className={`absolute inset-0 rounded-full border shadow-[0_0_15px_rgba(59,130,246,0.1)] ${
+                          isLinkActive(link.href) ? 'bg-blue-500/20 border-blue-400/40' : 'bg-blue-500/15 border-blue-500/30'
+                        }`}
                         transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                       />
                     )}
@@ -157,7 +174,10 @@ const Navbar = () => {
             <motion.div layout="position" className="lg:hidden">
               <button 
                 onClick={() => setIsOpen(!isOpen)} 
-                className="text-gray-400 hover:text-white p-2"
+                className="text-gray-400 hover:text-white p-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
+                aria-expanded={isOpen}
+                aria-controls="mobile-nav"
+                aria-label={isOpen ? 'Chiudi il menu di navigazione' : 'Apri il menu di navigazione'}
               >
                 {isOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
@@ -171,6 +191,7 @@ const Navbar = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
+              id="mobile-nav"
               className="absolute top-full left-0 right-0 bg-slate-900/98 backdrop-blur-2xl border-b border-slate-700/50 shadow-2xl overflow-hidden lg:hidden"
             >
               <div className="px-6 py-8 space-y-4">
@@ -178,8 +199,11 @@ const Navbar = () => {
                   <Link 
                     key={link.name} 
                     to={`/#${link.href}`}
-                    className="text-gray-300 hover:text-blue-400 block text-2xl font-semibold transition-all"
+                    className={`block text-2xl font-semibold transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400 ${
+                      isLinkActive(link.href) ? 'text-blue-400' : 'text-gray-300 hover:text-blue-400'
+                    }`}
                     onClick={(e) => handleNavClick(e, link.href)}
+                    aria-current={isLinkActive(link.href) ? 'page' : undefined}
                   >
                     {link.name}
                   </Link>
