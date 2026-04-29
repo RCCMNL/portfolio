@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Progetto FIA</title>
+  <script src="assets/vendor.js"></script>
+  <style>
+    html {
+      box-sizing: border-box;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: inherit;
+    }
+
+    .app-shell {
+      width: 100%;
+      max-width: 1180px;
+    }
+
+    .content-grid > * {
+      min-width: 0;
+    }
+
+    .intro,
+    .card-copy,
+    .action-list li,
+    .panel-head h2,
+    .panel-badge {
+      overflow-wrap: anywhere;
+    }
+
+    @media (max-width: 640px) {
+      .game-frame::before {
+        inset: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .content-grid {
+        gap: 18px;
+      }
+
+      .game-panel,
+      .info-card {
+        border-radius: 22px;
+      }
+
+      .game-panel {
+        padding: 12px;
+      }
+
+      .game-frame {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body class="page" data-dino-auto-mount="true">
+  <main class="app-shell">
+    <section class="hero">
+      <p class="eyebrow">Fondamenti di Intelligenza Artificiale</p>
+      <h1>Chrome Dino evolutivo</h1>
+      <p class="intro">
+        Una piccola arena in cui 30 dinosauri imparano a sopravvivere
+        combinando selezione genetica, mutazione e decisioni in tempo reale.
+      </p>
+    </section>
+
+    <section class="content-grid">
+      <div class="game-panel" data-dino-demo>
+        <div class="panel-head">
+          <div>
+            <p class="panel-label panel-label-live">
+              <span class="live-dot" aria-hidden="true"></span>
+              Simulazione live
+            </p>
+            <h2>Generazioni in esecuzione</h2>
+          </div>
+          <div class="panel-badge">AI Sandbox</div>
+        </div>
+
+        <div class="game-frame">
+          <div class="game" data-dino-role="game">
+            <div class="generation" data-dino-role="generation"></div>
+          </div>
+        </div>
+
+        <div class="stats-strip">
+          <div class="stat-chip">
+            <span class="stat-label">Generazione</span>
+            <strong class="stat-value" data-stat="generation" data-dino-stat="generation">1</strong>
+          </div>
+          <div class="stat-chip">
+            <span class="stat-label">Dinosauri vivi</span>
+            <strong class="stat-value" data-stat="lives" data-dino-stat="lives">30</strong>
+          </div>
+          <div class="stat-chip">
+            <span class="stat-label">Velocita</span>
+            <strong class="stat-value" data-stat="speed" data-dino-stat="speed">6.0x</strong>
+          </div>
+          <div class="stat-chip">
+            <span class="stat-label">Best score</span>
+            <strong class="stat-value" data-stat="best-score" data-dino-stat="best-score">0</strong>
+          </div>
+        </div>
+      </div>
+
+      <aside class="info-panel">
+        <div class="info-card">
+          <p class="card-kicker">Come leggere il test</p>
+          <p class="card-copy">
+            Ogni generazione eredita i cromosomi migliori, ma puo anche
+            peggiorare temporaneamente perche crossover e mutazioni mantengono
+            esplorazione e diversita.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <p class="card-kicker">Azioni possibili</p>
+          <ul class="action-list">
+            <li>Jump: usato per cactus e ostacoli ravvicinati.</li>
+            <li>Idle: il dino aspetta e conserva stabilita.</li>
+            <li>Duck: utile contro ostacoli aerei o timing stretti.</li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <p class="card-kicker">Stato osservato</p>
+          <ul class="action-list">
+            <li>Distanza e larghezza dell'ostacolo.</li>
+            <li>Altezza e posizione verticale.</li>
+            <li>Velocita corrente e tempo stimato all'impatto.</li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+  </main>
+  <script src="assets/genetic.js"></script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Server, Globe, Database, Terminal } from 'lucide-react';
 import dressmeImg from '../assets/dressme.png';
 import dinoIaImg from '../assets/dino_ia.png';
@@ -7,7 +7,7 @@ import portfolioImg from '../assets/portfolio.png';
 export const PERSONAL_INFO = {
   name: "Emanuele Riccardi",
   role: "Software Engineer & Full Stack Developer",
-  bio: "Studente in Informatica con una forte passione per l'ingegneria del software. Specializzato nello sviluppo di architetture scalabili e soluzioni backend robuste. Alla ricerca di sfide che uniscano complessità algoritmica e impatto utente.",
+  bio: "Studente in Informatica con una forte passione per l'ingegneria del software. Specializzato nello sviluppo di architetture scalabili e soluzioni backend robuste. Alla ricerca di sfide che uniscano complessita algoritmica e impatto utente.",
   email: "riccardiemanuele2016@outlook.it",
   github: "https://github.com/RCCMNL/",
   linkedin: "https://www.linkedin.com/in/emanuele-riccardi-5819b422a/"
@@ -27,7 +27,7 @@ export const SKILLS = [
   {
     category: "Software Testing",
     icon: <Database size={24} />,
-    items: ["Selenium", "Junit" ,"X-path", "css-Selector"]
+    items: ["Selenium", "Junit", "XPath", "CSS Selector"]
   },
   {
     category: "Tools & DevOps",
@@ -39,7 +39,7 @@ export const SKILLS = [
 export const PROJECTS = [
   {
     title: "E-Commerce DressMe",
-    description: "Piattaforma web per un e-commerce di abbigliamento esame di Ingegneria del software",
+    description: "Piattaforma web per un e-commerce di abbigliamento sviluppata per l'esame di Ingegneria del Software.",
     tech: ["Java EE", "MySQL", "JSP"],
     link: "https://github.com/RCCMNL/ProgettoIS",
     github: "https://github.com/RCCMNL/ProgettoIS",
@@ -48,10 +48,10 @@ export const PROJECTS = [
   },
   {
     title: "Dino-IA",
-    description: "Algotitmo genetico svilippato per esame di FIA",
-    tech: ["Java", "JS"],
-    link: "https://github.com/RCCMNL/Progetto-FIA",
-    github: "https://github.com/RCCMNL/Progetto-FIA",
+    description: "Esperimento interattivo basato su Chrome Dino in cui una popolazione di agenti evolve tramite algoritmo genetico e decisioni in tempo reale su canvas.",
+    tech: ["JavaScript", "Canvas", "Algoritmi Genetici", "Webpack"],
+    link: "https://github.com/RCCMNL/progetto-fia-dino-ia/tree/demo-portfolio",
+    github: "https://github.com/RCCMNL/progetto-fia-dino-ia/tree/demo-portfolio",
     image: dinoIaImg,
     category: "Java"
   },
