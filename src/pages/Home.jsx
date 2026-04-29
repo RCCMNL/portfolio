@@ -24,7 +24,6 @@ const Home = () => {
       <Hero />
       <Skills />
       <Projects />
-      <Contact />
     </>
   );
 };

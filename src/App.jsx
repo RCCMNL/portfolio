@@ -5,6 +5,8 @@ import Home from './pages/Home';
 import ProjectDemo from './pages/ProjectDemo';
 import BackgroundBlobs from './components/BackgroundBlobs';
 import ScrollProgress from './components/ScrollProgress';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
 import './App.css';
 
 const App = () => {
@@ -22,6 +24,8 @@ const App = () => {
               <Route path="/progetti/:id" element={<ProjectDemo />} />
             </Routes>
           </main>
+          <Contact />
+          <Footer />
         </div>
       </div>
     </Router>

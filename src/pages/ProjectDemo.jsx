@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { PROJECTS } from '../data';
@@ -74,9 +74,7 @@ const ProjectDemo = () => {
                 <h4 className="font-bold mb-2">Dettagli Implementativi</h4>
                 {isDinoProject ? (
                   <p className="text-sm text-gray-400 leading-relaxed">
-                    La demo esegue una simulazione canvas di Chrome Dino in cui una popolazione di dinosauri apprende con algoritmo genetico.
-                    Questa integrazione nel portfolio usa una mini-app isolata per mantenere intatto il motore di gioco, evitare conflitti CSS
-                    con Tailwind e offrire una preview live stabile dentro la pagina progetto.
+                    Il progetto implementa un algoritmo genetico per addestrare una popolazione di agenti a superare gli ostacoli nel gioco Chrome Dino. Il sistema, qui integrato per una preview live, utilizza selezione naturale, crossover e mutazione per far evolvere generazioni di dinosauri sempre più performanti, simulando un processo di apprendimento basato sull'evoluzione darwiniana.
                   </p>
                 ) : (
                   <p className="text-sm text-gray-400">

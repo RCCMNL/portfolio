@@ -78,15 +78,6 @@ const Contact = () => {
           </div>
         </motion.div>
         
-        <motion.footer 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="mt-20 text-gray-600 text-sm border-t border-slate-800/50 pt-8"
-        >
-          <p>© {new Date().getFullYear()} {PERSONAL_INFO.name} • Sviluppato con React & Tailwind</p>
-        </motion.footer>
       </div>
     </section>
   );

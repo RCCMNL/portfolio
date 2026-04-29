@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { Server, Globe, Database, Terminal } from 'lucide-react';
 import dressmeImg from '../assets/dressme.png';
 import dinoIaImg from '../assets/dino_ia.png';
@@ -48,8 +48,8 @@ export const PROJECTS = [
   },
   {
     title: "Dino-IA",
-    description: "Esperimento interattivo basato su Chrome Dino in cui una popolazione di agenti evolve tramite algoritmo genetico e decisioni in tempo reale su canvas.",
-    tech: ["JavaScript", "Canvas", "Algoritmi Genetici", "Webpack"],
+    description: "Progetto sviluppato per l'esame di Fondamenti di Intelligenza Artificiale presso l'Università di Salerno (UniSa), qui integrato con una simulazione live basata su algoritmi genetici.",
+    tech: ["IA", "Algoritmi Genetici", "Neural Networks", "Evolutionary Computing"],
     link: "https://github.com/RCCMNL/progetto-fia-dino-ia/tree/demo-portfolio",
     github: "https://github.com/RCCMNL/progetto-fia-dino-ia/tree/demo-portfolio",
     image: dinoIaImg,
