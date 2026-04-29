@@ -18,7 +18,7 @@ export const SKILLS = [
   {
     category: "Backend & Data",
     icon: <Server size={24} />,
-    items: ["Java Enterprise (EE/Jakarta)", "Spring Boot", "Python", "Node.js", "MySQL"]
+    items: ["Java Enterprise (EE/Jakarta)", "Spring Boot", "Python", "MongoDB", "MySQL"]
   },
   {
     category: "Frontend & UI",

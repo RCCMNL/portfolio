@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import ProjectDemo from './pages/ProjectDemo';
-import NotFound from './pages/NotFound';
 import BackgroundBlobs from './components/BackgroundBlobs';
 import ScrollProgress from './components/ScrollProgress';
 import Contact from './components/Contact';
@@ -29,7 +28,6 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/progetti/:id" element={<ProjectDemo />} />
-              <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
           <Contact />

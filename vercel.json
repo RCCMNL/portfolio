@@ -1,7 +1,19 @@
 {
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/progetti/e-commerce-dressme",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/progetti/dino-ia",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/progetti/gymcorpus",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/progetti/portfolio-personale",
       "destination": "/index.html"
     }
   ]
