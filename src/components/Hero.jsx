@@ -13,14 +13,14 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
           className="md:w-1/2 text-center md:text-left space-y-6 max-w-xl"
         >
-          <motion.div 
+          {/* <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
             className="inline-block px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-sm font-semibold border border-blue-500/20"
           >
             Disponibile per nuove opportunità
-          </motion.div>
+          </motion.div> */}
           <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight">
             Ciao, sono <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">{PERSONAL_INFO.name}</span>
           </h1>
