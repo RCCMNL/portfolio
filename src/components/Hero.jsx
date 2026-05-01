@@ -5,8 +5,8 @@ import { PERSONAL_INFO } from '../data';
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white pt-24 pb-12 overflow-hidden">
-      <div className="max-w-5xl mx-auto px-6 sm:px-10 lg:px-12 flex flex-col md:flex-row items-center gap-12 md:gap-16">
+    <section id="home" className="min-h-screen min-h-[100dvh] flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white pt-20 pb-10 md:pt-24 md:pb-12 overflow-hidden">
+      <div className="max-w-5xl mx-auto px-6 sm:px-10 lg:px-12 flex flex-col md:flex-row items-center gap-8 md:gap-16">
         <motion.div 
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
@@ -54,7 +54,7 @@ const Hero = () => {
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="md:w-1/2 mt-12 md:mt-0 flex justify-center relative"
+          className="md:w-1/2 mt-8 md:mt-0 flex justify-center relative"
         >
           <div className="relative w-full max-w-[280px] sm:max-w-xs md:max-w-sm lg:max-w-md aspect-square">
             <div className="absolute inset-0 bg-blue-500 rounded-full opacity-20 blur-3xl animate-pulse"></div>
