@@ -45,6 +45,7 @@ Benvenuti nel repository del mio portfolio personale. Questo progetto è una Sin
 
 - **Email**: riccardiemanuele2016@outlook.it
 - **LinkedIn**: [Emanuele Riccardi](https://www.linkedin.com/in/emanuele-riccardi-5819b422a/)
+- **Portfolio**: https://portfolio-riccardiemanuele.vercel.app/
 - **GitHub**: [@RCCMNL](https://github.com/RCCMNL/)
 
 ---
