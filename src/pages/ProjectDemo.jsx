@@ -122,7 +122,7 @@ const ProjectDemo = () => {
                 >
                   Tecnologie
                 </motion.h3>
-                <div className="flex flex-wrap gap-3 justify-center">
+                <div className="flex flex-wrap gap-2 sm:gap-3 justify-center">
                   {project.tech.map((t, i) => (
                     <motion.span 
                       key={i}
@@ -135,7 +135,7 @@ const ProjectDemo = () => {
                         borderColor: 'rgba(59, 130, 246, 0.5)',
                         color: '#60a5fa'
                       }}
-                      className="px-5 py-2 bg-slate-800/50 rounded-xl border border-slate-700 text-sm font-medium text-gray-300 cursor-default transition-colors backdrop-blur-sm shadow-lg"
+                      className="px-3 sm:px-5 py-1.5 sm:py-2 bg-slate-800/50 rounded-xl border border-slate-700 text-xs sm:text-sm font-medium text-gray-300 cursor-default transition-colors backdrop-blur-sm shadow-lg"
                     >
                       {t}
                     </motion.span>
