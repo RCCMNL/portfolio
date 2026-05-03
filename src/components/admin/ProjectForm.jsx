@@ -116,13 +116,13 @@ const ProjectForm = ({ project, onSave, onCancel }) => {
           </div>
         </div>
 
-        <div className="flex gap-3">
+        <div className="flex flex-col sm:flex-row gap-3">
           <motion.button type="submit" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} disabled={saving}
-            className="flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium shadow-lg shadow-blue-500/20 disabled:opacity-50">
+            className="flex-1 flex items-center justify-center gap-2 px-6 py-4 sm:py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold shadow-lg shadow-blue-500/20 disabled:opacity-50">
             {saving ? <Loader2 size={18} className="animate-spin" /> : <Save size={18} />}
-            {saving ? 'Salvataggio...' : isEditing ? 'Aggiorna' : 'Crea Progetto'}
+            {saving ? 'Salvataggio...' : isEditing ? 'Aggiorna Progetto' : 'Crea Progetto'}
           </motion.button>
-          <button type="button" onClick={onCancel} className="px-6 py-3 bg-slate-700 hover:bg-slate-600 text-white rounded-xl font-medium transition-colors">Annulla</button>
+          <button type="button" onClick={onCancel} className="px-6 py-4 sm:py-3 bg-slate-700 hover:bg-slate-600 text-white rounded-xl font-medium transition-colors">Annulla</button>
         </div>
       </form>
     </div>

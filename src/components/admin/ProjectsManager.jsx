@@ -112,31 +112,34 @@ const ProjectsManager = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, x: -50 }}
-              className="bg-slate-800/40 backdrop-blur-xl rounded-xl border border-slate-700/50 p-4 flex items-center gap-4 group hover:border-slate-600 transition-colors"
+              className="bg-slate-800/40 backdrop-blur-xl rounded-xl border border-slate-700/50 p-4 flex flex-col sm:flex-row items-start sm:items-center gap-4 group hover:border-slate-600 transition-colors"
             >
-              <GripVertical size={18} className="text-gray-600 flex-shrink-0 cursor-grab" />
+              <div className="flex items-center gap-4 w-full sm:w-auto">
+                <GripVertical size={18} className="text-gray-600 flex-shrink-0 cursor-grab hidden sm:block" />
 
-              {/* Thumbnail */}
-              <div className="w-16 h-12 rounded-lg overflow-hidden bg-slate-700 flex-shrink-0">
-                {project.image && (
-                  <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
-                )}
-              </div>
-
-              {/* Info */}
-              <div className="flex-1 min-w-0">
-                <h3 className="text-white font-medium text-sm truncate">{project.title}</h3>
-                <p className="text-gray-500 text-xs truncate">{project.description}</p>
-                <div className="flex gap-1.5 mt-1.5">
-                  {(project.tech || []).slice(0, 3).map((t, i) => (
-                    <span key={i} className="px-2 py-0.5 bg-slate-700/50 text-gray-400 text-[10px] rounded">
-                      {t}
-                    </span>
-                  ))}
-                  {(project.tech || []).length > 3 && (
-                    <span className="text-gray-500 text-[10px]">+{project.tech.length - 3}</span>
+                {/* Thumbnail */}
+                <div className="w-20 h-14 sm:w-16 sm:h-12 rounded-lg overflow-hidden bg-slate-700 flex-shrink-0">
+                  {project.image && (
+                    <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
                   )}
                 </div>
+
+                <div className="flex-1 min-w-0 sm:hidden">
+                  <h3 className="text-white font-medium text-sm truncate">{project.title}</h3>
+                  <span className="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-[10px] uppercase tracking-wider rounded border border-blue-500/20">
+                    {project.category}
+                  </span>
+                </div>
+              </div>
+
+              {/* Info Desktop/Tablet */}
+              <div className="flex-1 min-w-0 hidden sm:block">
+                <h3 className="text-white font-medium text-sm truncate">{project.title}</h3>
+                <p className="text-gray-500 text-xs truncate">{project.description}</p>
+              </div>
+
+              <div className="flex-1 min-w-0 sm:hidden w-full">
+                <p className="text-gray-400 text-xs line-clamp-2">{project.description}</p>
               </div>
 
               {/* Categoria */}
@@ -145,7 +148,7 @@ const ProjectsManager = () => {
               </span>
 
               {/* Azioni */}
-              <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="flex gap-2 w-full sm:w-auto justify-end border-t border-slate-700/50 sm:border-0 pt-3 sm:pt-0">
                 {project.github && (
                   <a
                     href={project.github}
