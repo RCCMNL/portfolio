@@ -76,7 +76,7 @@ const PersonalInfoEditor = () => {
         <p className="text-gray-400 text-sm mt-1">Modifica le informazioni che appaiono nel portfolio.</p>
       </div>
 
-      <div className="bg-slate-800/40 backdrop-blur-xl rounded-2xl border border-slate-700/50 p-6 space-y-5">
+      <div className="bg-slate-800/40 backdrop-blur-xl rounded-2xl border border-slate-700/50 p-4 sm:p-6 space-y-5">
         {fields.map((field) => {
           const Icon = field.icon;
           return (
@@ -115,7 +115,7 @@ const PersonalInfoEditor = () => {
         whileTap={{ scale: 0.98 }}
         onClick={handleSave}
         disabled={saving}
-        className={`flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-all shadow-lg ${
+        className={`w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold transition-all shadow-lg ${
           saved
             ? 'bg-emerald-600 text-white shadow-emerald-500/20'
             : 'bg-blue-600 hover:bg-blue-700 text-white shadow-blue-500/20'
