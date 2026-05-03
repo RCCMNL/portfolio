@@ -2,6 +2,7 @@ import React from 'react';
 import { LogOut, User, Bell } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { motion } from 'framer-motion';
+import DataMigration from './DataMigration';
 
 /**
  * Header per la dashboard admin.
@@ -31,6 +32,7 @@ const AdminHeader = ({ title, onMenuClick }) => {
       </div>
 
       <div className="flex items-center gap-4">
+        <DataMigration />
         <div className="hidden sm:flex flex-col items-end mr-2">
           <span className="text-xs font-medium text-white">{currentUser?.email?.split('@')[0]}</span>
           <span className="text-[10px] text-emerald-400 font-medium">Online</span>
