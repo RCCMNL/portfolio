@@ -53,7 +53,7 @@ const ProjectCard = ({ project }) => {
             whileTap={{ scale: 0.9 }}
             href={project.github} 
             target="_blank" 
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="p-3 bg-white/90 rounded-full text-slate-900 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
             title="GitHub Repository"
             aria-label={`Apri il repository GitHub di ${project.title}`}

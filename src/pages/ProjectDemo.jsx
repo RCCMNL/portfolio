@@ -147,7 +147,7 @@ const ProjectDemo = () => {
                 <a
                   href={project.github}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="px-10 py-3 bg-slate-800 hover:bg-slate-700 rounded-xl border border-slate-700 flex items-center justify-center gap-2 transition-all min-w-[200px]"
                 >
                   <Github size={20} /> Repository Code

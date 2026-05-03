@@ -69,7 +69,7 @@ const Contact = () => {
               whileHover={{ y: -5 }}
               href={PERSONAL_INFO.linkedin} 
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="flex flex-col items-center group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400 rounded-2xl"
             >
               <div className="w-16 h-16 bg-blue-500/10 rounded-full flex items-center justify-center text-blue-400 mb-3 group-hover:bg-blue-500 group-hover:text-white transition-all shadow-lg">

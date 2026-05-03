@@ -45,8 +45,8 @@ const Hero = () => {
             </motion.a>
           </div>
           <div className="flex justify-center md:justify-start gap-6 pt-6 text-gray-400">
-            <motion.a whileHover={{ y: -5, color: '#ffffff' }} href={PERSONAL_INFO.github} target="_blank" rel="noreferrer" className="transition-colors"><Github size={24} /></motion.a>
-            <motion.a whileHover={{ y: -5, color: '#60a5fa' }} href={PERSONAL_INFO.linkedin} target="_blank" rel="noreferrer" className="transition-colors"><Linkedin size={24} /></motion.a>
+            <motion.a whileHover={{ y: -5, color: '#ffffff' }} href={PERSONAL_INFO.github} target="_blank" rel="noopener noreferrer" className="transition-colors"><Github size={24} /></motion.a>
+            <motion.a whileHover={{ y: -5, color: '#60a5fa' }} href={PERSONAL_INFO.linkedin} target="_blank" rel="noopener noreferrer" className="transition-colors"><Linkedin size={24} /></motion.a>
           </div>
         </motion.div>
         

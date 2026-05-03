@@ -11,7 +11,7 @@ export const PERSONAL_INFO = {
   bio: "Studente in Informatica con una forte passione per l'ingegneria del software. Specializzato nello sviluppo di architetture scalabili e soluzioni backend robuste. Alla ricerca di sfide che uniscano complessita algoritmica e impatto utente.",
   email: "riccardiemanuele2016@outlook.it",
   github: "https://github.com/RCCMNL/",
-  linkedin: "https://www.linkedin.com/in/emanuele-riccardi-5819b422a/"
+  linkedin: "https://www.linkedin.com/in/emanuele-riccardi-5819b422a"
 };
 
 export const SKILLS = [
