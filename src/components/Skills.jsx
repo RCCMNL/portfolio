@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { SKILLS } from '../data';
+import { useSkills } from '../hooks/useSkills';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -24,6 +24,8 @@ const itemVariants = {
 };
 
 const Skills = () => {
+  const { skills: SKILLS } = useSkills();
+
   return (
     <section id="skills" className="py-24 bg-slate-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

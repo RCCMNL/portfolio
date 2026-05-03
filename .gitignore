@@ -25,3 +25,6 @@ dist-ssr
 
 # AI Agents
 agents.md
+
+# Firebase secrets
+.env

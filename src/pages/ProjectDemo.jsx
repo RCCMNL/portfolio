@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { PROJECTS } from '../data';
+import { useProjects } from '../hooks/useProjects';
 import { ArrowLeft, Github, ExternalLink, Code2, Terminal } from 'lucide-react';
 import { useSEO } from '../hooks/useSEO';
 import { getProjectSlug } from '../utils/projectSlug';
@@ -10,6 +10,7 @@ const DINO_PROJECT_ID = 'dino-ia';
 
 const ProjectDemo = () => {
   const { id } = useParams();
+  const { projects: PROJECTS } = useProjects();
   const project = PROJECTS.find((p) => getProjectSlug(p.title) === id);
   const isDinoProject = id === DINO_PROJECT_ID;
   const [isDemoLoaded, setIsDemoLoaded] = useState(false);

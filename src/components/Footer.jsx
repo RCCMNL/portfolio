@@ -1,8 +1,10 @@
 import React from 'react';
-import { PERSONAL_INFO } from '../data';
+import { useSettings } from '../hooks/useSettings';
 import { motion } from 'framer-motion';
 
 const Footer = () => {
+  const { settings: PERSONAL_INFO } = useSettings();
+
   return (
     <footer className="py-12 bg-slate-950 border-t border-slate-800 text-center text-gray-500 text-sm">
       <div className="max-w-7xl mx-auto px-4">

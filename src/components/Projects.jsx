@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Github, ExternalLink, Code2 } from 'lucide-react';
 import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { PROJECTS } from '../data';
+import { useProjects } from '../hooks/useProjects';
 import { getProjectSlug } from '../utils/projectSlug';
 
 const ProjectCard = ({ project }) => {
@@ -97,6 +97,7 @@ const ProjectCard = ({ project }) => {
 };
 
 const Projects = () => {
+  const { projects: PROJECTS } = useProjects();
   const [filter, setFilter] = useState('Tutti');
   const categories = ['Tutti', ...new Set(PROJECTS.map((project) => project.category))];
 

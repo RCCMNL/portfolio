@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { useLocation, Link } from 'react-router-dom';
-import { PERSONAL_INFO } from '../data';
+import { useSettings } from '../hooks/useSettings';
 
 const Navbar = () => {
+  const { settings: PERSONAL_INFO } = useSettings();
   const [isOpen, setIsOpen] = useState(false);
   const [isPhotoOpen, setIsPhotoOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);

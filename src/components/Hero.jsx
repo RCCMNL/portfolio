@@ -1,9 +1,12 @@
 import React from 'react';
 import { Code2, Mail, Github, Linkedin } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { PERSONAL_INFO } from '../data';
+import { useSettings } from '../hooks/useSettings';
 
 const Hero = () => {
+  const { settings: PERSONAL_INFO } = useSettings();
+  const heroCard = PERSONAL_INFO.heroCodeCard || { status: 'Contattami...', skills: ['Java', 'React'], coffee: 'Infinity' };
+
   return (
     <section id="home" className="min-h-screen min-h-[100dvh] flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white pt-20 pb-10 md:pt-24 md:pb-12 overflow-hidden">
       <div className="max-w-5xl mx-auto px-6 sm:px-10 lg:px-12 flex flex-col md:flex-row items-center gap-8 md:gap-16">
@@ -72,9 +75,9 @@ const Hero = () => {
             >
               <div className="space-y-4 font-mono text-xs lg:text-sm text-gray-300">
                 <p><span className="text-purple-400">class</span> <span className="text-yellow-300">Dev</span> {'{'}</p>
-                <p className="pl-4">status: <span className="text-green-400">"Contattami..."</span>;</p>
-                <p className="pl-4">skills: [<span className="text-green-400">"Java"</span>, <span className="text-green-400">"React"</span>];</p>
-                <p className="pl-4">coffee: <span className="text-blue-400">Infinity</span>;</p>
+                <p className="pl-4">status: <span className="text-green-400">"{heroCard.status}"</span>;</p>
+                <p className="pl-4">skills: [{(heroCard.skills || []).map((s, i) => (<span key={i}><span className="text-green-400">"{s}"</span>{i < heroCard.skills.length - 1 ? ', ' : ''}</span>))}];</p>
+                <p className="pl-4">coffee: <span className="text-blue-400">{heroCard.coffee}</span>;</p>
                 <p>{'}'}</p>
               </div>
             </motion.div>

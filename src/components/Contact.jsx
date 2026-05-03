@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Mail, Linkedin, Download } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { PERSONAL_INFO } from '../data';
+import { useSettings } from '../hooks/useSettings';
 
 const Contact = () => {
+  const { settings: PERSONAL_INFO } = useSettings();
   const [copied, setCopied] = useState(false);
 
   const handleEmailClick = async () => {
