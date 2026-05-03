@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Menu } from 'lucide-react';
 import AdminHeader from '../components/admin/AdminHeader';
+import AdminSidebar from '../components/admin/AdminSidebar';
 import PersonalInfoEditor from '../components/admin/PersonalInfoEditor';
 import HeroEditor from '../components/admin/HeroEditor';
 import ProjectsManager from '../components/admin/ProjectsManager';
