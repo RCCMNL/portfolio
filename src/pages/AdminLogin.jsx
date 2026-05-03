@@ -2,9 +2,13 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Mail, Lock, LogIn, AlertCircle, Loader2 } from 'lucide-react';
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth, ADMIN_EMAILS } from '../contexts/AuthContext';
 import { useSEO } from '../hooks/useSEO';
 
+/**
+ * Pagina di Login per l'amministratore.
+ * Gestisce l'autenticazione tramite email/password o Google.
+ */
 const AdminLogin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -31,8 +35,8 @@ const AdminLogin = () => {
     try {
       const { user } = await login(email, password);
       
-      // Controllo immediato se è l'admin
-      if (user.email.toLowerCase() !== 'riccardiemanuele2016@outlook.it') {
+      // Controllo immediato se l'email è autorizzata (dal .env)
+      if (!ADMIN_EMAILS.some(e => e.toLowerCase() === user.email.toLowerCase())) {
         await logout();
         setError('Questo account non è autorizzato ad accedere come admin.');
         setLoading(false);
@@ -61,8 +65,8 @@ const AdminLogin = () => {
       const result = await loginWithGoogle();
       const user = result.user;
 
-      // Controllo immediato se è l'admin
-      if (user.email.toLowerCase() !== 'riccardiemanuele2016@outlook.it') {
+      // Controllo immediato se l'email è autorizzata (dal .env)
+      if (!ADMIN_EMAILS.some(e => e.toLowerCase() === user.email.toLowerCase())) {
         await logout();
         setError(`L'account ${user.email} non è autorizzato.`);
         setLoading(false);

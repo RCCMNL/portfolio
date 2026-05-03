@@ -1,13 +1,17 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import {
   signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
   signInWithPopup,
   signOut,
   onAuthStateChanged
 } from 'firebase/auth';
 import { auth, googleProvider, isFirebaseConfigured } from '../firebase/config';
 
-const ADMIN_EMAIL = 'riccardiemanuele2016@outlook.it';
+// Carica le email admin dalle variabili d'ambiente (.env)
+export const ADMIN_EMAILS = import.meta.env.VITE_ADMIN_EMAILS 
+  ? import.meta.env.VITE_ADMIN_EMAILS.split(',').map(email => email.trim())
+  : [];
 
 const AuthContext = createContext(null);
 
@@ -21,7 +25,9 @@ export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(isFirebaseConfigured);
 
-  const isAdmin = currentUser?.email?.toLowerCase() === ADMIN_EMAIL.toLowerCase();
+  const isAdmin = currentUser?.email && ADMIN_EMAILS.some(email => 
+    email.toLowerCase() === currentUser.email.toLowerCase()
+  );
 
   useEffect(() => {
     if (!isFirebaseConfigured) { setLoading(false); return; }
