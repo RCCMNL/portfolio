@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Menu } from 'lucide-react';
-import AdminSidebar from '../components/admin/AdminSidebar';
+import AdminHeader from '../components/admin/AdminHeader';
 import PersonalInfoEditor from '../components/admin/PersonalInfoEditor';
 import HeroEditor from '../components/admin/HeroEditor';
 import ProjectsManager from '../components/admin/ProjectsManager';
@@ -13,6 +13,13 @@ const sectionComponents = {
   hero: HeroEditor,
   projects: ProjectsManager,
   skills: SkillsManager,
+};
+
+const sectionLabels = {
+  info: 'Informazioni Personali',
+  hero: 'Configurazione Hero',
+  projects: 'Gestione Progetti',
+  skills: 'Competenze & Skills',
 };
 
 const AdminDashboard = () => {
@@ -32,14 +39,11 @@ const AdminDashboard = () => {
         onClose={() => setSidebarOpen(false)}
       />
 
-      <div className="flex-1 min-w-0">
-        {/* Header mobile */}
-        <div className="lg:hidden flex items-center gap-3 p-4 border-b border-slate-800 bg-slate-900/95 backdrop-blur-xl sticky top-0 z-30">
-          <button onClick={() => setSidebarOpen(true)} className="p-2 text-gray-400 hover:text-white hover:bg-slate-800 rounded-lg">
-            <Menu size={22} />
-          </button>
-          <h1 className="text-white font-semibold">Admin</h1>
-        </div>
+      <div className="flex-1 min-w-0 flex flex-col">
+        <AdminHeader 
+          title={sectionLabels[activeSection]} 
+          onMenuClick={() => setSidebarOpen(true)} 
+        />
 
         {/* Contenuto principale */}
         <motion.div
@@ -47,7 +51,7 @@ const AdminDashboard = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="p-6 lg:p-10 max-w-6xl"
+          className="p-6 lg:p-10 max-w-6xl overflow-y-auto"
         >
           <ActiveComponent />
         </motion.div>
