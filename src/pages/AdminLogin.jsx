@@ -10,7 +10,7 @@ const AdminLogin = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const { login, loginWithGoogle, currentUser, isAdmin } = useAuth();
+  const { login, loginWithGoogle, logout, currentUser, isAdmin } = useAuth();
   const navigate = useNavigate();
 
   useSEO({
@@ -29,7 +29,16 @@ const AdminLogin = () => {
     setError('');
     setLoading(true);
     try {
-      await login(email, password);
+      const { user } = await login(email, password);
+      
+      // Controllo immediato se è l'admin
+      if (user.email.toLowerCase() !== 'riccardiemanuele2016@outlook.it') {
+        await logout();
+        setError('Questo account non è autorizzato ad accedere come admin.');
+        setLoading(false);
+        return;
+      }
+
       navigate('/admin', { replace: true });
     } catch (err) {
       const messages = {
@@ -49,7 +58,17 @@ const AdminLogin = () => {
     setError('');
     setLoading(true);
     try {
-      await loginWithGoogle();
+      const result = await loginWithGoogle();
+      const user = result.user;
+
+      // Controllo immediato se è l'admin
+      if (user.email.toLowerCase() !== 'riccardiemanuele2016@outlook.it') {
+        await logout();
+        setError(`L'account ${user.email} non è autorizzato.`);
+        setLoading(false);
+        return;
+      }
+
       navigate('/admin', { replace: true });
     } catch (err) {
       if (err.code === 'auth/popup-closed-by-user') {
