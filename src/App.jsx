@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import ProjectDemo from './pages/ProjectDemo';
@@ -16,6 +17,7 @@ const App = () => {
   return (
     <Router>
       <AuthProvider>
+        <Analytics />
         <Routes>
           {/* Rotte admin — layout separato, senza Navbar/Contact/Footer */}
           <Route path="/admin/login" element={<AdminLogin />} />
